@@ -1,0 +1,108 @@
+@import "reset.less";
+@import "var.less";
+@import "mapas.less";
+
+@breakpointsMobile: ~'(max-width: 767px)';
+@breakpointsTablet: ~'(min-width: 768px) and (max-width: 1023px)';
+
+.mixintestDecoration() {
+    text-decoration: none;
+}
+
+.mixinPadding(@vert, @horz) {
+    padding: @vert @horz;
+}
+
+body {
+    background-color: @backgroundColorPage;
+
+    li {
+        list-style: none;
+    }
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+
+    @media @breakpointsTablet {
+        max-width: 80%;
+    }
+}
+
+header {
+    background-color: @backgroundButtonHover;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    .container {
+        display: #mapsDisplay[container];
+        justify-content: space-between;
+        align-items: center;
+        .mixinPadding(16px, 0);
+    }
+
+    .menu {
+        display: #mapsDisplay[container];
+
+        li {
+            font-weight: bold;
+            margin-left: 24px;
+        }
+
+        a {
+            color: @linkColor;
+            .mixintestDecoration();
+        }
+    }
+}
+
+section {
+    .mixinPadding(56px, 0);
+
+    .products {
+        margin-top: 40px;
+        display: #mapsDisplay[products];
+        grid-template-columns: repeat(3, 32.66%);
+        column-gap: 1%;
+        row-gap: 4%;
+        width: 100%;
+
+        @media @breakpointsMobile {
+            display: block;
+        }
+
+        @media @breakpointsTablet {
+            grid-template-columns: repeat(2, 48.5%);
+            column-gap: 3%;
+        }
+    }
+
+    .product-item {
+        @media @breakpointsMobile {
+            margin-bottom: 32px;
+        }
+    }
+
+    .product-item img {
+        width: 100%;
+        border-radius: 16px;
+    }
+
+    .product-button {
+        display: #mapsDisplay[productsButton];
+        background-color: @backgrounfButtonColor;
+        color: @buttonWordColor;
+        text-align: center;
+        .mixinPadding(8px, 0);
+        border-radius: 8px;
+        margin-top: 8px;
+        .mixintestDecoration();
+
+        &:hover {
+            background-color: @backgroundButtonHover;
+        }
+    }
+}
